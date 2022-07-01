@@ -1,4 +1,4 @@
-@import './partials/components.scss';
+@import './partials/_components.scss';
 
 * {
   margin: 0;
@@ -16,6 +16,10 @@ body{
   height: 100vh;
   height: 100svh;
   grid-template-rows: 4em repeat(4, 1fr);
+  @include mq('med'){
+    grid-template-rows: 4em repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .grid-item{

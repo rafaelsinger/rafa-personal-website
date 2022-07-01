@@ -1,11 +1,16 @@
 import React from 'react';
 import './App.scss';
-import LandingPage from './LandingPage/LandingPage';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import BlogLandingPage from './BlogLandingPage/BlogLandingPage';
 
 
 function App() {
   return (
-    <LandingPage />
+    <BrowserRouter>
+      <Routes>
+        <Route path='/blog/home' element={<BlogLandingPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

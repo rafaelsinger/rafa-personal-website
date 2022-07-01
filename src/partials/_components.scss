@@ -1,5 +1,5 @@
-@import './variables.scss';
-@import './mixins.scss';
+@import './_variables.scss';
+@import './_mixins.scss';
 
 .landing-header{
     @include center;
@@ -9,16 +9,26 @@
     h2{
         font-family: 'Source Code Pro';
     }
+    @include mq('med'){
+        grid-column: span 2;
+    }
+    @include mq('lg'){
+        font-size: 1.5em;
+    }
+}
 
-    .back-btn{
-        margin: auto 1rem;
-        width: 1.5rem;
-        height: 1.5rem;
-        cursor: pointer;
-        &:hover{
-            fill: rgb(206, 206, 206);
-            transition: all 0.3s;
-        }
+.back-btn{
+    margin: auto 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    &:hover{
+        fill: rgb(206, 206, 206);
+        transition: all 0.3s;
+    }
+    @include mq('lg'){
+        width: 2rem;
+        height: 2rem;
     }
 }
 
