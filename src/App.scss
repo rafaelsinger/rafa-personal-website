@@ -1,0 +1,26 @@
+@import './partials/components.scss';
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Source Code Pro', monospace;
+  font-family: 'Arimo', sans-serif;
+}
+
+body{
+  color: white;
+}
+
+.grid-container{
+  display: grid;
+  height: 100vh;
+  height: 100svh;
+  grid-template-rows: 4em repeat(4, 1fr);
+}
+
+.grid-item{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
