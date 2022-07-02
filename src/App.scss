@@ -7,19 +7,41 @@
   font-family: 'Arimo', sans-serif;
 }
 
-body{
-  color: white;
+a {
+  text-decoration: none; /* no underline */
+  all: unset;
+  cursor: pointer;
+}
+ul{
+  margin: 0;
+  padding: 0;
 }
 
-.grid-container{
-  display: grid;
-  height: 100vh;
-  height: 100svh;
+
+body{
+  color: white;
+  &::-webkit-scrollbar-track{
+    background: #1e1e24;
+  }
+  &::-webkit-scrollbar-thumb{
+    background: #6649b8;
+  }
+  &::-webkit-scrollbar{
+    width: 0.25rem;
+  }
+}
+
+.grid-landing{
+  @include grid;
   grid-template-rows: 4em repeat(4, 1fr);
   @include mq('med'){
     grid-template-rows: 4em repeat(2, 1fr);
     grid-template-columns: 1fr 1fr;
   }
+}
+
+.grid-primary{
+  @include grid;
 }
 
 .grid-item{

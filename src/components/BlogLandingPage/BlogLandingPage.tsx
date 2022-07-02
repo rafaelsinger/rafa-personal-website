@@ -4,7 +4,7 @@ import Medium from './Medium'
 
 const LandingPage = () => {
   return (
-    <div className='grid-container'>
+    <div className='grid-landing'>
         <Header />
         <Medium type={'music'} />
         <Medium type={"movies"} />
