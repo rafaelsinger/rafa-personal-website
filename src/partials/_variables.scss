@@ -2,9 +2,13 @@ $primary: #4F95FE;
 $primary-dark: darken($primary, 10%);
 $primary-light: lighten($primary, 15%);
 $secondary: #F0F0F0;
+$search-color: #D9D9D9;
 $icon-hover: rgb(206, 206, 206);
+$icon-active: rgb(181, 233, 250);
 
 $mediums: ('music', 'movies', 'books', 'television');
+
+$transition-speed: 300ms;
 
 $breakpoints: (
     'sm' : 640px,

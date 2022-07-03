@@ -18,12 +18,45 @@
     }
 }
 
+@mixin large-search($width) {
+    width: $width;
+    display: flex;
+    .search{
+        width: 200px;
+        border-radius: 50px;
+        justify-content: flex-start;
+        svg{
+            margin-left: 1rem;
+        }
+    }
+    #search-input{
+        display: block;
+        width: calc(#{$width} - 1rem - 41px);
+        margin-right: 1rem;
+    }
+    @content;
+}
+
+@mixin small-search{
+    &:hover{
+        @include large-search($width: 200px);
+    }
+    &:hover ~ .search-hide{
+        display: none;
+    }
+}
+
 @mixin mq($break) {
     $value: map-get($breakpoints, $break);
     $sm: map-get($breakpoints, 'sm');
 
-    @if $value > $sm {
+    @if $value and $value > $sm {
         @media (min-width: $value) {
+            @content;
+        }
+    }
+    @else if $break == 'sm/med' {
+        @media (min-width: map-get($breakpoints, 'sm') ) and (max-width: map-get($breakpoints, 'med') ) {
             @content;
         }
     }
@@ -33,6 +66,7 @@
         }
     }
 }
+
 
 .hide{
     visibility: hidden;

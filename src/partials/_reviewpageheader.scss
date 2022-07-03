@@ -1,0 +1,83 @@
+@import './_variables.scss';
+@import './_mixins.scss';
+
+.review-header{
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+    position: sticky;
+    // border-bottom: 2px dashed black;
+}
+
+.review-type{
+    order: 1;
+    font-size: 1.6em;
+    font-weight: 700;
+    font-style: italic;
+    padding: 1rem;
+}
+
+.seperator{
+    margin: auto;
+    width: 90%;
+    height: 1px;
+    background-image: url(../../public/svgs/border.svg);
+}
+
+.search-hide{
+    order: 0;
+    visibility: hidden;
+}
+
+.search-flex-container{
+    order: 2;
+    border-radius: 50px;
+    background-color: $search-color;
+    @include mq('sm'){
+        @include small-search;
+    }
+    @include mq('sm/med'){
+        @include small-search;
+    }
+    @include mq('med'){
+        @include large-search($width: 200px){
+            & ~ .search-hide{
+                display: block;
+                width: 200px;
+            }
+        }   
+    }
+
+    @include mq('lg'){
+        @include large-search($width: 350px){
+            & ~ .search-hide{
+                display: block;
+                width: 350px;
+            }
+            #search-input{
+                width: 1000px;   
+            }
+        }
+    }
+}
+
+.search{
+    $s: &;
+    @include center;
+    background-color: $search-color;
+    width: 41px;
+    height: 41px;
+    border-radius: 50%;
+}
+
+#search-input{
+    display: none;
+}
+
+.search-icon{
+    width: 20px;
+    height: 20px;
+}

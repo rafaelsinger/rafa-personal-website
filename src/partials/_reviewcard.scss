@@ -1,0 +1,12 @@
+@import './_variables.scss';
+@import './_mixins.scss';
+
+.reviews-container{
+    margin-top: 1rem;
+    color: black;
+}
+
+.review-image{
+    height: 180px;
+    width: 180px;
+}

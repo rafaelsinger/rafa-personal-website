@@ -10,7 +10,7 @@ const Medium: FC<Medium> = ({type}) => {
   let navigate = useNavigate();
 
   const handleClick = (): void => {
-    navigate(`/blog/${type}`)
+    navigate(`/reviews/${type}`)
   }
 
   return (
