@@ -31,17 +31,13 @@ const ReviewPage:FC<{reviewType:string}> = ({reviewType}) => {
         fetchPosts();
     }, [])
 
-    const focus = (e: any) => {
-        console.log(e);
-    }
-
     return (
     <>
         <Navbar />
         <div className='review-header'>
             <div className='search-flex-container'>
                 <Search />
-                <input type="text" name='search' id="search-input" onChange={(e) => focus(e)} /> 
+                <input type="text" name='search' id="search-input" /> 
             </div>
             <div className='review-type'>{reviewType.toUpperCase()}</div>
             <div className='search-hide'><Search /></div>

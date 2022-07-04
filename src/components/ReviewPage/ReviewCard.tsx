@@ -10,14 +10,15 @@ type ReviewCardProps = {
 
 const ReviewCard: FC<ReviewCardProps> = ({post, category}) => {
 
-    const date = moment(post.createdAt).format('MMM DD, YYYY')
+    const date = moment(post.createdAt).format('MMMM D, YYYY') //potentially change to DD
     return (
-        <div className='review-card' id={post.title}>
-            <div>{post.title}</div>
-            <div>{date}</div>
-            <img src={post.featuredImage.url} className='review-image'></img>
-            <Link to={`/reviews/${category}/${post.slug}`}>aaaa</Link>
-        </div>
+        <Link to={`/reviews/${category}/${post.slug}`} className='test'>
+            <div className='review-card' id={post.title}>
+                <h3 className='review-title'>{post.title}</h3>
+                <div className='review-date'>{date}</div>
+                <img src={post.featuredImage.url} className='review-image'></img>
+            </div>
+        </Link>
     )
 }
 

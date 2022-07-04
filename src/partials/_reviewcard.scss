@@ -4,6 +4,29 @@
 .reviews-container{
     margin-top: 1rem;
     color: black;
+    @include center;
+    flex-direction: column;
+    width: 85%;
+    margin: auto;
+}
+
+.review-card{
+    @include center;
+    margin-top: 1rem;
+    flex-direction: column;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed black;
+}
+
+.review-title{
+    font-weight: bold;
+    // max-width: 80%;
+    text-align: center;
+}
+
+.review-date{
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
 }
 
 .review-image{
