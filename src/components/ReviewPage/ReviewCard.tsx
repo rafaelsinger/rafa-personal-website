@@ -1,7 +1,8 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import moment from 'moment';
 import { Post } from '../../types';
 import { Link } from 'react-router-dom';
+import { getReviewDetails } from '../../services';
 
 type ReviewCardProps = {
     post: Post;

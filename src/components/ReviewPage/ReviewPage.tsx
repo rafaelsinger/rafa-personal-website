@@ -7,9 +7,8 @@ import Search from './Search'
 
 const ReviewPage:FC<{reviewType:string}> = ({reviewType}) => {
 
-    console.log(reviewType);
-
     const [posts, setPosts] = useState<Post[] | null>(null);
+    const [filteredPosts, setFilteredPosts] = useState<Post[] | undefined>();
 
     useEffect(() => {
         const category = window.location.pathname.split('/')[2];
@@ -29,7 +28,15 @@ const ReviewPage:FC<{reviewType:string}> = ({reviewType}) => {
         } 
 
         fetchPosts();
+
     }, [])
+
+    
+    useEffect(() => {
+        console.log(reviewType);
+        const filteredPosts = posts?.filter((post: Post) => post.node.categories[0].slug === reviewType);
+        setFilteredPosts(filteredPosts);
+    }, [reviewType])
 
     return (
     <>
@@ -44,7 +51,7 @@ const ReviewPage:FC<{reviewType:string}> = ({reviewType}) => {
         </div>
         <div className='seperator'></div>
         <div className='reviews-container'>
-            {posts && posts.map((post) => (
+            {filteredPosts && filteredPosts.map((post) => (
                 <ReviewCard post={post.node} category={reviewType} key={post.node.title} />
             ))}
         </div>
