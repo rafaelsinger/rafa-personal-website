@@ -12,7 +12,7 @@ const ReviewCard: FC<ReviewCardProps> = ({post, category}) => {
 
     const date = moment(post.createdAt).format('MMMM D, YYYY') //potentially change to DD
     return (
-        <Link to={`/reviews/${category}/${post.slug}`} className='test'>
+        <Link to={`/reviews/${category}/${post.slug}`} className='review-card-link'>
             <div className='review-card' id={post.title}>
                 <h3 className='review-title'>{post.title}</h3>
                 <div className='review-date'>{date}</div>

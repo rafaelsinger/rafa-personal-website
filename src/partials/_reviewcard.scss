@@ -6,8 +6,25 @@
     color: black;
     @include center;
     flex-direction: column;
-    width: 85%;
     margin: auto;
+    @include mq('med'){
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        .review-card{
+            width: 85%;
+            margin-left: auto;
+            margin-right: auto;
+            height: 100%;
+        }
+        .review-card-link {
+            height: 275px;
+        }
+    }
+    @include mq('lg'){
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
 }
 
 .review-card{
@@ -16,6 +33,7 @@
     flex-direction: column;
     padding-bottom: 1rem;
     border-bottom: 1px dashed black;
+    width: 85vw;
 }
 
 .review-title{

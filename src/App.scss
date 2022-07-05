@@ -26,10 +26,10 @@ ul{
 body{
   color: white;
   &::-webkit-scrollbar-track{
-    background: #1e1e24;
+    background: $search-color;
   }
   &::-webkit-scrollbar-thumb{
-    background: #6649b8;
+    background: darken($primary, 25%);
   }
   &::-webkit-scrollbar{
     width: 0.25rem;
