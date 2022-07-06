@@ -66,8 +66,6 @@ const Review = () => {
   return (
     <>
         <div className='review-details-container'>
-            <h1 style={{color: 'red'}}>{slug}</h1>
-
             {reviewDetails?.content.raw.children.map((typeObj:GenericObject, index: number) => {
                 const children = typeObj.children.map((item:GenericObject, itemindex:number) => getContentFragment(itemindex, item.text, item));
 

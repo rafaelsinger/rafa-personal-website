@@ -34,6 +34,9 @@
     padding-bottom: 1rem;
     border-bottom: 1px dashed black;
     width: 85vw;
+    &:hover{
+        background: lighten($primary, 25%);
+    }
 }
 
 .review-title{
