@@ -4,18 +4,14 @@ import { Link } from 'react-router-dom';
 
 const SearchItem:FC<{title: string, searchTerm: string, category: string, slug: string}> = ({title, searchTerm, category, slug}) => {
 
-    const boldQuery = (str: string, query: string) => {
-        const n = str.toUpperCase();
-        const q = query.toUpperCase();
-        const x = n.indexOf(q);
-        if (!q || x === -1) {
-            return str; // bail early
-        }
-        const l = q.length;
-        return str.substring(0, x) + '<b>' + str.substring(x, l) + '</b>' + str.substring(x + l);
-    }
+    function modify(result: string, query: string) {
+        var re = new RegExp(query.split("").map(function(x) { 
+            return x.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'); 
+        }).join("[-\\s.]*"), 'ig');
+        return result.replace(re, '<b>$&</b>');
+      }
 
-    const displayTitle = boldQuery(title, searchTerm);
+    let displayTitle = modify(title, searchTerm);
 
   return (
     <li className='search-item'>

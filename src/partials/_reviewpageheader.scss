@@ -73,11 +73,14 @@
 .search-box{
     display: none;
     position: absolute;
-    bottom: 5px;
+    top: 50px;
     background-color: $search-color;
     width: calc(200px - 2rem);
     margin-left: 1rem;
     list-style: none;
+    @include mq('med'){
+        width: calc(350px - 2rem);
+    }
 }
 
 .search{
@@ -90,6 +93,7 @@
 }
 
 .search-item{
+    margin: 0.5rem 0.25rem;
     &:hover{
         color: lighten($primary, 5%);
     }

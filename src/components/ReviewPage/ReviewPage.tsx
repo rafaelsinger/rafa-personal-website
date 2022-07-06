@@ -5,8 +5,13 @@ import ReviewCard from './ReviewCard';
 import { Post } from '../../types';
 import Search from './Search'
 import SearchItem from './SearchItem';
+import Loading from '../Loading';
 
-const ReviewPage:FC<{reviewType:string}> = ({reviewType}) => {
+interface ReviewPageProps {
+    reviewType: string;
+}
+
+const ReviewPage:FC<ReviewPageProps> = ({reviewType}) => {
 
     const [posts, setPosts] = useState<Post[] | null>(null);
     const [filteredPosts, setFilteredPosts] = useState<Post[] | undefined>();
@@ -14,14 +19,13 @@ const ReviewPage:FC<{reviewType:string}> = ({reviewType}) => {
     const [searchTerm, setSearchTerm] = useState<string>('');
     const [searchedReviews, setSearchedReviews] = useState<Post[] | undefined>();
 
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+
+    //setting icon active color
     useEffect(() => {
-        const category = window.location.pathname.split('/')[2];
-        const currActive = document.getElementsByClassName('active');
-        if (currActive.length > 0) {
-            currActive[0].classList.remove('active');
-        }
-        const element = document.getElementById(category);
-        element?.classList.add('active');
+        // const category = window.location.pathname.split('/')[2];
+        setActiveIcon();
+        window.addEventListener('popstate', () => setActiveIcon());
     }, []);
 
     useEffect(() => {
@@ -40,45 +44,51 @@ const ReviewPage:FC<{reviewType:string}> = ({reviewType}) => {
 
     useEffect(() => {
         const searchedReviews = filteredPosts?.filter(post => post.node.title.toLowerCase().includes(searchTerm.toLowerCase()));
+        const searchBox = document.querySelector<HTMLElement>('.search-box');
+        if (searchBox != undefined){
+            searchBox.style.display = 'block';
+        }
         setSearchedReviews(searchedReviews);
     }, [searchTerm])
-
-    // node:
-    // author: {name: 'Rafael Singer', id: 'cl52tboatiio00blroaed9kem'}
-    // categories: [{…}]
-    // createdAt: "2022-07-04T07:54:30.400961+00:00"
-    // excerpt: "\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur "
-    // featuredImage: {url: 'https://media.graphassets.com/BRt9QwCRRuyzE3kKaRAL'}
-    // slug: "kendrick-lamar-mr-morale-and-the-big-steppers"
-    // title: "Kendrick Lamar - \"Mr. Morale & the Big Steppers"
-
-    
 
     const getFilteredPosts = ():void => {
         const filteredPosts = posts?.filter((post: Post) => post.node.categories[0].slug === reviewType);
         setFilteredPosts(filteredPosts);
+        setIsLoading(false);
     }
 
     const fetchFilteredPosts =  async (): Promise<void> => {
+        setIsLoading(true);
         const posts = (await getPosts()) || [];
         const filteredPosts = posts?.filter((post: Post) => post.node.categories[0].slug === reviewType);
         setFilteredPosts(filteredPosts);
+        setIsLoading(false);
     }
     
     const fetchPosts = async (): Promise<void> => {
+        setIsLoading(true);
         const posts = (await getPosts()) || [];
         setPosts(posts);
     } 
 
+    const setActiveIcon = (): void => {
+        const currActive = document.getElementsByClassName('active');
+        if (currActive.length > 0) {
+            currActive[0].classList.remove('active');
+        }
+        const element = document.getElementById(reviewType);
+        element?.classList.add('active');
+    }
+
     return (
     <>
-        <Navbar />
+        {isLoading ? <Loading /> : <>
         <div className='review-header'>
             <div className='search-flex-container'>
                 <Search />
                 <input type="text" name='search' id="search-input" placeholder='Search...' onChange={(e) => setSearchTerm(e.target.value)} /> 
                 <ul className='search-box'>
-                    {searchedReviews?.map(review => (
+                    {searchTerm.length > 0 && searchedReviews?.map(review => (
                         <SearchItem title={review.node.title} searchTerm={searchTerm} category={reviewType} slug={review.node.slug} />
                     ))}
                 </ul>
@@ -91,7 +101,7 @@ const ReviewPage:FC<{reviewType:string}> = ({reviewType}) => {
             {filteredPosts && filteredPosts.map((post) => (
                 <ReviewCard post={post.node} category={reviewType} key={post.node.title} />
             ))}
-        </div>
+        </div> </>}
     </>
   )
 }

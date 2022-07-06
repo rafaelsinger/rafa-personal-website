@@ -2,22 +2,36 @@ import React, { ReactNode, useEffect, useState } from 'react'
 import { Post } from '../../types'
 import { useParams } from 'react-router-dom'
 import { getReviewDetails } from '../../services';
+import Loading from '../Loading';
+import Navbar from '../Navbar';
+
+interface ReviewProps {
+    reviewType: string;
+}
 
 
-const Review = () => {
+const Review = ({reviewType}: ReviewProps) => {
     let { slug } = useParams();
 
     const [reviewDetails, setReviewDetails] = useState<Post | null>(null);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     useEffect(() => {
         const fetchReviewDetails = async (): Promise<Post> => {
+            setIsLoading(true);
             const review = await ((getReviewDetails(slug || '')) || []);
             setReviewDetails(review);
+            setIsLoading(false);
             return review;
         }
 
         fetchReviewDetails();
-    }, [])
+    }, []);
+
+    useEffect(() => {
+        const element = document.getElementById(reviewType);
+        element?.classList.add('active');
+    }, []);
 
     type GenericObject = { [key: string]: any };
 
@@ -60,18 +74,16 @@ const Review = () => {
         }
     }
 
-    console.log(reviewDetails);
-    
-
   return (
     <>
-        <div className='review-details-container'>
+        <Navbar />
+        {isLoading ? <Loading /> : <div className='review-details-container'>
             {reviewDetails?.content.raw.children.map((typeObj:GenericObject, index: number) => {
                 const children = typeObj.children.map((item:GenericObject, itemindex:number) => getContentFragment(itemindex, item.text, item));
 
                 return getContentFragment(index, children, typeObj, typeObj.type);
             })}
-        </div>
+        </div>} 
     </>
   )
 }

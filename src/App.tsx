@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { BlogLandingPage, ReviewPage, Review } from './components';
+import { BlogLandingPage, ReviewPage, Review, ReviewContainer } from './components';
+
 
 function App() {
   return (
@@ -9,14 +10,14 @@ function App() {
       <Routes>
         <Route path='reviews'>
           <Route path='home' element={<BlogLandingPage />} />
-          <Route path='music' element={<ReviewPage reviewType='music' />} />
-          <Route path='music/:slug' element={<Review />} />
-          <Route path='movies' element={<ReviewPage reviewType='movies' />} />
-          <Route path='movies/:slug' element={<Review />} />
-          <Route path='books' element={<ReviewPage reviewType='books' />} />
-          <Route path='books/:slug' element={<Review />} />
-          <Route path='television' element={<ReviewPage reviewType='television' />} />
-          <Route path='television/:slug' element={<Review />} />
+          <Route path='music' element={<ReviewContainer reviewType='music' />} />
+          <Route path='music/:slug' element={<Review reviewType='music'/>} />
+          <Route path='movies' element={<ReviewContainer reviewType='movies' />} />
+          <Route path='movies/:slug' element={<Review reviewType='movies' />} />
+          <Route path='books' element={<ReviewContainer reviewType='books' />} />
+          <Route path='books/:slug' element={<Review reviewType='books' />} />
+          <Route path='television' element={<ReviewContainer reviewType='television' />} />
+          <Route path='television/:slug' element={<Review reviewType='television' />} />
         </Route>
       </Routes>
     </BrowserRouter>
