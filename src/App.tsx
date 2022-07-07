@@ -3,6 +3,9 @@ import './App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { BlogLandingPage, ReviewPage, Review, ReviewContainer } from './components';
 
+//TODO: add share button to review page w/ functionality
+//TODO: add comments to review page
+
 
 function App() {
   return (
