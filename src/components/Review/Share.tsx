@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import {FaFacebookSquare, FaTwitterSquare, FaInstagramSquare, FaSnapchatSquare} from "react-icons/fa";
+import {FaFacebookSquare, FaTwitterSquare, FaEnvelope, FaRedditSquare} from "react-icons/fa";
 
 interface ShareProps {
     title: string,
@@ -8,15 +8,10 @@ interface ShareProps {
 
 const Share:FC<ShareProps> = ({title, artist}) => {
 
-    const iconStyles = {
-        "width" : '45px',
-        "height" : '45px'
-    }
-
     const urls: {[key:string]: string}= {
         'twitter' : `https://twitter.com/share?url=${window.location.href}&text=${artist} - ${title} REVIEW&via=rafaelsinger6`,
         'facebook' : `https://www.facebook.com/sharer.php?u=${window.location.href}`,
-        // 'snapchat' : 
+        'reddit' : `https://www.reddit.com/submit?url=${window.location.href}&title=${artist} - ${title} REVIEW` 
     }
 
     const handleShare = (platform: string): void => {
@@ -28,11 +23,14 @@ const Share:FC<ShareProps> = ({title, artist}) => {
   return (
     <div className='share-btn'>
         <div className='share-container'>
-            <FaTwitterSquare className='social-icon' style={iconStyles} fill='#1DA1F2' onClick={() => handleShare('twitter')} />
-            <FaFacebookSquare className='social-icon' style={iconStyles} fill='#4267B2' onClick={() => handleShare('facebook')} />
-            <FaInstagramSquare className='social-icon' style={iconStyles} fill='#C13584'/>
-            <FaSnapchatSquare className='social-icon' style={iconStyles} fill='#f0ed00' onClick={() => handleShare('snapchat')}/>
-            <div className="snapchat-creative-kit-share" data-text='false'></div>
+            <FaTwitterSquare className='social-icon' title='Twitter' fill='#1DA1F2' onClick={() => handleShare('twitter')} />
+            <FaFacebookSquare className='social-icon' title='Facebook' fill='#4267B2' onClick={() => handleShare('facebook')} />
+            <FaRedditSquare className='social-icon' title='Reddit' fill='#FF5700' onClick={() => handleShare('reddit')}/>
+            <div className='social-icon'>
+                <a className='email' href={`mailto:?subject=${artist} - ${title} REVIEW&body=${window.location.href}`} title="Email">
+                    <FaEnvelope className='email' fill='#333' />
+                </a>
+            </div>
         </div>
     </div>
   )

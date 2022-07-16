@@ -92,30 +92,38 @@ const Review = ({reviewType}: ReviewProps) => {
 
     const reviewedAt = moment(reviewDetails?.createdAt).format('MMMM D, YYYY');
 
-    
-    let artist = reviewDetails?.title.split("-")[0];
-    artist?.substring(0, artist.length-1);
-    let title = reviewDetails?.title.split("-")[1].substring(1);
-    
+    let title: string | undefined = '';
+    let artist: string | undefined = '';
+    if (reviewType === 'television' || reviewType === 'movies'){
+        title = reviewDetails?.title;
+    } else {
+        artist = reviewDetails?.title.split("-")[0];
+        artist?.substring(0, artist.length-1);
+        title = reviewDetails?.title.split("-")[1].substring(1);
+    }
+
+
   return (
     <>
         <Navbar />
-        {isLoading ? <Loading /> : <div className='review-details-container'>
+        {isLoading ? <Loading /> : <div className='review-title-container'>
             <h1 className='review-details-title'>{title}</h1>
-            <h2 className='review-details-artist'>{artist}</h2>
-            <div className='review-details-reviewed-at'>Reviewed: {reviewedAt}</div>
-            <div className='review-details-rating-container'>
-                <img src={reviewDetails?.featuredImage.url} className='review-details-image' />
-                <Rating rating={reviewDetails?.rating} />
-                <Share title={title ?? 'No Title'} artist={artist ?? 'No Artist'} />
-            </div>
-            <div className='text-container'>
-                <div className='review-details-excerpt'>{reviewDetails?.excerpt}</div>
-                {reviewDetails?.content.raw.children.map((typeObj:GenericObject, index: number) => {
-                    const children = typeObj.children.map((item:GenericObject, itemindex:number) => getContentFragment(itemindex, item.text, item));
+            <div className='review-details-container'>
+                <h2 className='review-details-artist'>{artist}</h2>
+                <div className='review-details-reviewed-at'>Reviewed: {reviewedAt}</div>
+                <div className='review-details-rating-container'>
+                    <img src={reviewDetails?.featuredImage.url} className={`review-details-image ` + (reviewType != 'music' ? 'vertical' : '')} />
+                    <Rating rating={reviewDetails?.rating} />
+                    <Share title={title ?? 'No Title'} artist={artist ?? 'No Artist'} />
+                </div>
+                <div className='text-container'>
+                    <div className='review-details-excerpt'>{reviewDetails?.excerpt}</div>
+                    {reviewDetails?.content.raw.children.map((typeObj:GenericObject, index: number) => {
+                        const children = typeObj.children.map((item:GenericObject, itemindex:number) => getContentFragment(itemindex, item.text, item));
 
-                    return getContentFragment(index, children, typeObj, typeObj.type);
-                })}
+                        return getContentFragment(index, children, typeObj, typeObj.type);
+                    })}
+                </div>
             </div>
         </div>} 
     </>

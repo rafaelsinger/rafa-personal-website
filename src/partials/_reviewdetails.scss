@@ -1,6 +1,12 @@
 @import './_variables.scss';
 @import './_mixins.scss';
 
+
+.review-title-container h1{
+    width: 100%;
+    color: black;
+    text-align: center;
+}
 .review-details-container{
     color: black;
     width: 85%;
@@ -47,7 +53,9 @@
 }
 
 .review-details-title{
-    margin: 1rem 1rem 0 1rem;
+    margin: 1rem auto;
+    margin-bottom: 0;
+    // width: 100vw;
     @include mq('med'){
         font-size: 2.5rem;
     }
@@ -78,16 +86,23 @@
 .review-details-rating-container{
     display: flex;
     flex-direction: column;
+    margin-bottom: 1rem;
     @media screen and (min-width: 500px){
         .review-details-image{
             width: 250px;
             height: 250px;
+            &.vertical{
+                height: 310px;
+            }
         }
     }
     @include mq('med'){
         .review-details-image{
             width: 300px;
             height: 300px;
+            &.vertical{
+                height: 420px;
+            }
         }
         .review-details-rating{
             width: 150px;

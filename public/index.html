@@ -9,8 +9,6 @@
       name="description"
       content="Web site created using create-react-app"
     />
-    <meta property="og:site_name" content="Snapchat" />
-    <meta property="og:title" content="The Fastest Way to Share a Moment!" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Source+Code+Pro:wght@600&display=swap" rel="stylesheet">
@@ -21,17 +19,5 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <script>
-      // Load the SDK asynchronously
-      (function (d, s, id) {
-        var js,
-          sjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "https://sdk.snapkit.com/js/v1/create.js";
-        sjs.parentNode.insertBefore(js, sjs);
-      })(document, "script", "snapkit-creative-kit-sdk");
-    </script>
   </body>
 </html>

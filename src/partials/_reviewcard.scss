@@ -19,6 +19,9 @@
         }
         .review-card-link {
             height: 275px;
+            &.vertical{
+                height: 325px;
+            }
         }
     }
     @include mq('lg'){
@@ -53,4 +56,7 @@
 .review-image{
     height: 180px;
     width: 180px;
+    &.vertical{
+        height: 240px;
+    }
 }
