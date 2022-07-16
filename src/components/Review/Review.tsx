@@ -6,6 +6,7 @@ import Loading from '../Loading';
 import Rating from './Rating';
 import moment from 'moment';
 import Navbar from '../Navbar';
+import Share from './Share';
 
 interface ReviewProps {
     reviewType: string;
@@ -106,6 +107,7 @@ const Review = ({reviewType}: ReviewProps) => {
             <div className='review-details-rating-container'>
                 <img src={reviewDetails?.featuredImage.url} className='review-details-image' />
                 <Rating rating={reviewDetails?.rating} />
+                <Share title={title ?? 'No Title'} artist={artist ?? 'No Artist'} />
             </div>
             <div className='text-container'>
                 <div className='review-details-excerpt'>{reviewDetails?.excerpt}</div>

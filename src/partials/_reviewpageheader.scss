@@ -81,6 +81,7 @@
     @include mq('med'){
         width: calc(350px - 2rem);
     }
+    max-height: 40vh;
 }
 
 .search{

@@ -144,6 +144,8 @@
 
 .content-paragraph{
     display: block;
+    font-size: 1.1rem;
+    line-height: 1.4rem;
     @include mq('med'){
         font-size: 1.2rem;
     }
@@ -155,3 +157,4 @@
         margin-right: auto;
     }
 }
+
