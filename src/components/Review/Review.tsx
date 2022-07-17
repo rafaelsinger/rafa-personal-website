@@ -112,7 +112,7 @@ const Review = ({reviewType}: ReviewProps) => {
                 <h2 className='review-details-artist'>{artist}</h2>
                 <div className='review-details-reviewed-at'>Reviewed: {reviewedAt}</div>
                 <div className='review-details-rating-container'>
-                    <img src={reviewDetails?.featuredImage.url} className={`review-details-image ` + (reviewType != 'music' ? 'vertical' : '')} />
+                    <img src={reviewDetails?.featuredImage.url} alt={reviewDetails?.title} className={`review-details-image ` + (reviewType != 'music' ? 'vertical' : '')} />
                     <Rating rating={reviewDetails?.rating} />
                     <Share title={title ?? 'No Title'} artist={artist ?? 'No Artist'} />
                 </div>

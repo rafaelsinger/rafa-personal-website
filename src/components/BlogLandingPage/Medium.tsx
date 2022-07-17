@@ -1,12 +1,12 @@
 import React, {FC} from 'react'
 import { useNavigate } from 'react-router-dom';
 
-interface Medium {
+interface MediumProps {
   type: string;
 }
 
 
-const Medium: FC<Medium> = ({type}) => {
+const Medium: FC<MediumProps> = ({type}) => {
   let navigate = useNavigate();
 
   const handleClick = (): void => {

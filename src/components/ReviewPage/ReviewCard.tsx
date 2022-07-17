@@ -18,7 +18,7 @@ const ReviewCard: FC<ReviewCardProps> = ({post, category}) => {
             <div className='review-card' id={post.title}>
                 <h3 className='review-title'>{post.title}</h3>
                 <div className='review-date'>{date}</div>
-                <img src={post.featuredImage.url} className={`review-image ` + (category != 'music' ? `vertical` : '')}></img>
+                <img src={post.featuredImage.url} alt={post.title} className={`review-image ` + (category != 'music' ? `vertical` : '')}></img>
             </div>
         </Link>
     )
