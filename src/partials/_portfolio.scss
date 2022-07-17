@@ -1,0 +1,23 @@
+@import './_variables.scss';
+@import './_mixins.scss';
+
+.portfolio-container{
+    color: black;
+    height: 100svh;
+    height: 100vh;
+    font-size: 2rem;
+    @include center;
+}
+
+.landing-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reviews-link{
+    color: $primary;
+    &:hover{
+        color: lighten($primary, 10%);
+    }
+}

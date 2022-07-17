@@ -86,7 +86,7 @@ const ReviewPage:FC<ReviewPageProps> = ({reviewType}) => {
         <div className='review-header'>
             <div className='search-flex-container'>
                 <Search />
-                <input type="text" name='search' id="search-input" placeholder='Search...' onChange={(e) => setSearchTerm(e.target.value)} /> 
+                <input type="text" name='search' id="search-input" placeholder='Search...' autoComplete='off' onChange={(e) => setSearchTerm(e.target.value)} /> 
                 <ul className='search-box'>
                     {searchTerm.length > 0 && searchedReviews?.map(review => (
                         <SearchItem title={review.node.title} searchTerm={searchTerm} category={reviewType} slug={review.node.slug} />

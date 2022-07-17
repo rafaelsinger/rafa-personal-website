@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { BlogLandingPage, ReviewPage, Review, ReviewContainer } from './components';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BlogLandingPage, Review, ReviewContainer, Portfolio } from './components';
 
 //TODO: add share button to review page w/ functionality
 //TODO: add comments to review page
@@ -11,7 +11,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path='/' element={<Portfolio />} />
         <Route path='reviews'>
+          <Route path='' element={<Navigate to='home' />} />
           <Route path='home' element={<BlogLandingPage />} />
           <Route path='music' element={<ReviewContainer reviewType='music' />} />
           <Route path='music/:slug' element={<Review reviewType='music'/>} />
