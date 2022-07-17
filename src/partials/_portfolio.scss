@@ -3,10 +3,16 @@
 
 .portfolio-container{
     color: black;
-    height: 100svh;
-    height: 100vh;
-    font-size: 2rem;
+    // height: 100svh;
+    height: calc(var(--vh) * 100);
+    // min-height: -webkit-fill-available;
+    // min-height: 100vh;
+    font-size: 1.5rem;
     @include center;
+    text-align: center;
+    width: 85%;
+    margin: auto;
+    
 }
 
 .landing-container{

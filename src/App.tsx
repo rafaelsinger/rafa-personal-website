@@ -11,7 +11,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Portfolio />} />
+        <Route path='/*' element={<Portfolio />} />
         <Route path='reviews'>
           <Route path='' element={<Navigate to='home' />} />
           <Route path='home' element={<BlogLandingPage />} />

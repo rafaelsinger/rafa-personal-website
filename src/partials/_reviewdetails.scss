@@ -91,9 +91,6 @@
         .review-details-image{
             width: 250px;
             height: 250px;
-            &.vertical{
-                height: 310px;
-            }
         }
     }
     @include mq('med'){
@@ -122,6 +119,9 @@
     width: 200px;
     height: 200px;
     margin: auto;
+    &.vertical{
+        height: 310px;
+    }
     @include mq('lg'){
         grid-area: image;
         margin: 0;
