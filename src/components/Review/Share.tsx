@@ -9,14 +9,21 @@ interface ShareProps {
 const Share:FC<ShareProps> = ({title, artist}) => {
 
     const urls: {[key:string]: string}= {
-        'twitter' : `https://twitter.com/share?url=${window.location.href}&text=${artist} - ${title} REVIEW&via=rafaelsinger6`,
+        'twitter' : `https://twitter.com/share?url=${window.location.href}&text=[insert]REVIEW&via=rafaelsinger6`,
         'facebook' : `https://www.facebook.com/sharer.php?u=${window.location.href}`,
-        'reddit' : `https://www.reddit.com/submit?url=${window.location.href}&title=${artist} - ${title} REVIEW` 
+        'reddit' : `https://www.reddit.com/submit?url=${window.location.href}&title=[insert]REVIEW` 
     }
 
     const handleShare = (platform: string): void => {
         const getUrl = <T extends object, U extends keyof T>(obj: T) => (key: U) => obj[key];
-        const url = getUrl(urls)(platform);
+        const pulledUrl = getUrl(urls)(platform);
+        let url = '';
+        if (artist.length > 0){
+            url = pulledUrl.replace('[insert]', `${artist}- ${title} `);
+        } else {
+            url = pulledUrl.replace('[insert]', `${title} `);
+        }
+        console.log(url);
         window.open(`${url}`, '_blank');
     }
 
