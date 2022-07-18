@@ -1,4 +1,4 @@
-import React, {FC} from 'react'
+import React, {FC, useEffect} from 'react'
 import Navbar from '../Navbar'
 import ReviewPage from './ReviewPage'
 
@@ -7,6 +7,10 @@ interface ReviewContainerProps {
 }
 
 const ReviewContainer= ({reviewType}: ReviewContainerProps) => {
+
+  useEffect(() => {
+    document.title = `${reviewType[0].toUpperCase() + reviewType.slice(1)} | Reviews by Rafa`
+  }, [reviewType])
 
   return (
     <>

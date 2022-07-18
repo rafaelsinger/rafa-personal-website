@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 
 const Portfolio = () => {
+  useEffect(() => {
+    document.title = 'Rafael Singer'
+  }, [])
+
   return (
     <div className='portfolio-container'>
         <div className='landing-container'>

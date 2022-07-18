@@ -36,6 +36,7 @@ const Review = ({reviewType}: ReviewProps) => {
         element?.classList.add('active');
     }, []);
 
+
     type GenericObject = { [key: string]: any };
 
     const getContentFragment = (index: number, text: any, obj: GenericObject, type?: string) => {
@@ -94,13 +95,30 @@ const Review = ({reviewType}: ReviewProps) => {
 
     let title: string | undefined = '';
     let artist: string | undefined = '';
-    if (reviewType === 'television' || reviewType === 'movies'){
-        title = reviewDetails?.title;
-    } else {
-        artist = reviewDetails?.title.split("-")[0];
-        artist?.substring(0, artist.length-1);
-        title = reviewDetails?.title.split("-")[1].substring(1);
+
+    const getTitle = () => {
+        if (reviewType === 'television' || reviewType === 'movies'){
+            title = reviewDetails?.title;
+        } else {
+            artist = reviewDetails?.title.split("-")[0];
+            artist?.substring(0, artist.length-1);
+            title = reviewDetails?.title.split("-")[1].substring(1);
+        }       
     }
+    // if (reviewType === 'television' || reviewType === 'movies'){
+    //     title = reviewDetails?.title;
+    // } else {
+    //     artist = reviewDetails?.title.split("-")[0];
+    //     artist?.substring(0, artist.length-1);
+    //     title = reviewDetails?.title.split("-")[1].substring(1);
+    // }
+
+    getTitle();
+
+    useEffect(() => {
+        getTitle();
+        document.title = `${title} REVIEW | Reviews by Rafa`
+    }, [reviewDetails])
 
 
   return (
