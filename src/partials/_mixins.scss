@@ -67,6 +67,13 @@
     }
 }
 
+@mixin animation-mixin($name, $from, $to) {
+    @keyframes #{$name} {
+      0% {transform: translate3d($from, 0, 0); opacity: 0;}
+      100% {transform: translate3d($to, 0, 0); opacity: 1;}
+    }
+  }
+
 
 .hide{
     visibility: hidden;

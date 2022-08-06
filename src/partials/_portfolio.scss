@@ -1,24 +1,84 @@
 @import './_variables.scss';
 @import './_mixins.scss';
 
-.portfolio-container{
-    color: black;
-    // height: 100svh;
-    height: calc(var(--vh) * 100);
-    // min-height: -webkit-fill-available;
-    // min-height: 100vh;
-    font-size: 1.5rem;
-    @include center;
-    text-align: center;
-    width: 85%;
-    margin: auto;
-    
+html {
+    scroll-behavior: smooth;
 }
 
-.landing-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.wrapper{
+    display: grid;
+    grid-template-rows: 675px repeat(5, 1fr);
+    position: relative;
+    // min-height: 100vh;
+    // min-height: var(--vh);
+    // flex-direction: column;
+    // @include center;
+}
+
+.portfolio-container{
+    color: $portfolio-primary;
+    width: 80%;
+    height: 90%;
+    margin: auto;
+    border-left: 4px solid $portfolio-primary;
+}
+
+.col-white{
+    position: absolute;
+    background-color: white;
+    z-index: 99;
+    width: 10%;
+    height: 675px;
+    top: 0;
+    left: 0;
+}
+
+.name{
+    padding-left: 1rem;
+    display: block;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-size: 4.5rem;
+    animation: 1s ease-out 0s 1 slide;
+}
+
+.position{
+    padding-left: 1rem;
+    font-size: 2rem;
+    margin-top: 1rem;
+    font-weight: 300;
+    opacity: 80%;
+    animation: 1s ease-out 0s 1 slide-pos;
+}
+
+.section-links{
+    margin-top: 1rem;
+}
+
+.link{
+    background-color: $portfolio-primary;
+    display: block;
+    color: white;
+    text-align: center;
+    width: 80%;
+    font-size: 1.4rem;
+    margin: 1.5rem 0;
+    border-radius: 0 10px 10px 0;
+    padding: 0.5rem 0;
+    animation: 1s ease-out 0s 1 slide-sec;
+    &:hover{
+        background-color: darken($portfolio-primary, 10%);
+    }
+}
+
+
+@for $i from 1 through 5 {
+    .link{
+        &:nth-child(#{$i}) {
+            animation-delay: $i * (1s / 18);
+        }   
+    }
+
 }
 
 .reviews-link{
@@ -26,4 +86,42 @@
     &:hover{
         color: lighten($primary, 10%);
     }
+}
+
+@keyframes slide {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-sec {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-pos {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 0.8;
+        transform: translateX(0);
+    }
+}
+
+#projects{
+    border: 1px red solid;
+    width: 100%;
+    height: 100vh;
+    color: $portfolio-primary;
 }
