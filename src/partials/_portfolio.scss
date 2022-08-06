@@ -9,6 +9,9 @@ html {
     display: grid;
     grid-template-rows: 675px repeat(5, 1fr);
     position: relative;
+    @include mq('lg'){
+        grid-template-rows: 100vh repeat(5, 1fr);
+    }
     // min-height: 100vh;
     // min-height: var(--vh);
     // flex-direction: column;
@@ -17,20 +20,68 @@ html {
 
 .portfolio-container{
     color: $portfolio-primary;
-    width: 80%;
+    width: 70%;
     height: 90%;
     margin: auto;
     border-left: 4px solid $portfolio-primary;
+    position: relative;
+    @include mq('lg'){
+        height: 75%;
+        border: none;
+    }
 }
 
 .col-white{
     position: absolute;
     background-color: white;
     z-index: 99;
-    width: 10%;
+    width: 15%;
     height: 675px;
     top: 0;
     left: 0;
+    @include mq('lg'){
+        top: 6rem;
+        width: 15%;
+        height: 80vh;
+        border-right: 4px solid $portfolio-primary;
+    }
+}
+
+.icon-container{
+    display: none;
+    @include mq('lg'){
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        z-index: 999;
+        left: 3rem;
+        color: $portfolio-primary;
+        top: 6rem;
+        > i {
+            margin: 1rem 0;
+        }
+    }
+}
+
+.icon{
+    animation: 1.5s ease-in 0s 1 fade-in;
+    padding: 0.7rem;
+    &:hover{
+        cursor: pointer;
+        color: white;
+        background-color: $portfolio-primary;
+        background-position: 20px center;
+        border-radius: 50%;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .name{
@@ -40,6 +91,10 @@ html {
     margin-block-end: 0;
     font-size: 4.5rem;
     animation: 1s ease-out 0s 1 slide;
+    @include mq('lg'){
+        padding-left: 3rem;
+        font-size: 6rem;
+    }
 }
 
 .position{
@@ -49,10 +104,17 @@ html {
     font-weight: 300;
     opacity: 80%;
     animation: 1s ease-out 0s 1 slide-pos;
+    @include mq('lg'){
+        padding-left: 3rem;
+        font-size: 2.5rem;
+    }
 }
 
 .section-links{
     margin-top: 1rem;
+    @include mq('lg'){
+        margin-top: 2.5rem;
+    }
 }
 
 .link{
@@ -65,17 +127,61 @@ html {
     margin: 1.5rem 0;
     border-radius: 0 10px 10px 0;
     padding: 0.5rem 0;
-    animation: 1s ease-out 0s 1 slide-sec;
+    // animation: 1s ease-out 0s 1 slide-sec;
     &:hover{
         background-color: darken($portfolio-primary, 10%);
     }
+    @include mq('lg'){
+        background-color: white;
+        color: $portfolio-primary;
+        text-align: left;
+        font-size: 1.8rem;
+        margin: 1.7rem 0;
+        width: 60%;
+        padding: 1.2rem 0;
+        padding-left: 3rem;
+        &:hover{
+            color: white;
+        }
+    }
 }
 
+.main-circle{
+    display: none;
+    @include mq('lg'){
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 76vh;
+        width: 15rem;
+        height: 30rem;
+        border-radius: 100%;
+        background-color: $portfolio-primary;
+        border-radius: 15rem 0 0 15rem;
+    }
+}
+
+.small-circle{
+    display: none;
+    @include mq('lg'){
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 63vh;
+        width: 22.5rem;
+        height: 45rem;
+        border-radius: 100%;
+        border: 2px solid $portfolio-primary;
+        border-radius: 22.5rem 0 0 22.5rem;
+        border-right: none;
+    }
+}
 
 @for $i from 1 through 5 {
     .link{
         &:nth-child(#{$i}) {
-            animation-delay: $i * (1s / 18);
+            animation: ((1s + 0.2 * ($i - 1))) ease-out 0s 1 slide-sec;
+            // animation-delay: $i * (1s / 18);
         }   
     }
 
