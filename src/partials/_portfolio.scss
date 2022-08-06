@@ -52,20 +52,20 @@ html {
     @include mq('lg'){
         display: flex;
         flex-direction: column;
+        align-items: center;
         position: absolute;
         z-index: 999;
-        left: 3rem;
+        left: 4%;
+        width: 6%;
         color: $portfolio-primary;
         top: 6rem;
-        > i {
-            margin: 1rem 0;
-        }
     }
 }
 
 .icon{
     animation: 1.5s ease-in 0s 1 fade-in;
-    padding: 0.7rem;
+    padding: 0.65rem;
+    margin-top: 1rem;
     &:hover{
         cursor: pointer;
         color: white;
@@ -73,6 +73,7 @@ html {
         background-position: 20px center;
         border-radius: 50%;
     }
+
 }
 
 @keyframes fade-in {
@@ -113,7 +114,7 @@ html {
 .section-links{
     margin-top: 1rem;
     @include mq('lg'){
-        margin-top: 2.5rem;
+        margin-top: 2rem;
     }
 }
 

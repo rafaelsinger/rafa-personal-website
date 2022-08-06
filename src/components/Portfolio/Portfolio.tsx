@@ -16,12 +16,12 @@ const Portfolio = () => {
     <div className='wrapper'>
       <div className='main-circle'></div>
       <div className='small-circle'></div>
+      <div className='icon-container'>
+        <a className='icon'><i id='github'><RiGithubLine size={50} /></i></a>
+        <a className='icon'><i id='linkedin'><GrLinkedinOption size={50} /></i></a>
+        <a href='/resume.pdf' download='Rafael Singer Resume' className='icon'><i id='resume'><IoMdDocument size={50} /></i></a>
+      </div>
       <div className='col-white'></div>
-        <div className='icon-container'>
-          <i className='icon' id='github'><RiGithubLine size={50} /></i>
-          <i className='icon' id='linkedin'><GrLinkedinOption size={50} /></i>
-          <i className='icon' id='resume'><IoMdDocument size={50} /></i>
-        </div>
       <div className='portfolio-container'>
         <h1 className='name'>Rafael Singer</h1>
         <h2 className='position'>Fullstack Web Developer</h2>
