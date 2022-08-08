@@ -29,7 +29,7 @@ body{
     background: $search-color;
   }
   &::-webkit-scrollbar-thumb{
-    background: darken($primary, 25%);
+    background: $portfolio-primary
   }
   &::-webkit-scrollbar{
     width: 0.25rem;

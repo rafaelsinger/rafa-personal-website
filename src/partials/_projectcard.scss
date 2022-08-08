@@ -1,0 +1,100 @@
+@import './_variables.scss';
+@import './_mixins.scss';
+
+.project-card{
+    width: 90%;
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    color: $portfolio-primary;
+    display: flex;
+    flex-direction: column;
+    @include mq('lg'){
+        width: 80%;
+    }
+}
+
+@for $i from 1 through 5 {
+    .project-card{
+        &:nth-child(#{$i}) {
+            grid-area: project-#{$i};
+        }   
+    }
+}
+
+
+.project-title{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.project-tech-container{
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.project-tech{
+    padding: 0.4rem 0.7rem;
+    color: white;
+    background-color: $portfolio-primary;
+    border-radius: 10px;
+    margin: 0.2rem 0.2rem;
+    @include mq('med'){
+        font-size: 1.15rem;
+    }
+    @include mq('lg'){
+        font-size: 1.2rem;
+        grid-area: tech;
+    }
+}
+
+.project-desc{
+    font-size: 1.2rem;
+    color: lighten($color: #000000, $amount: 0);
+    margin-top: 1rem;
+    @include mq('med'){
+        font-size: 1.4rem;
+    }
+}
+
+.project-btns{
+    display: flex;
+    margin: 1.5rem auto;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.project-card-btn{
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border: 1px solid $portfolio-primary;
+    border-radius: 10px;
+    &:hover{
+        color: white;
+        background-color: $portfolio-primary;
+    }
+    @include mq('med'){
+        font-size: 1.2rem;
+    }
+}
+
+.project-img-link{
+    margin-top: 1.5rem;
+    @include mq('lg'){
+        align-self: flex-end;
+        flex: 1;
+    }
+}
+
+.project-img{
+    width: 90vw;
+    height: 100%;
+    @include mq('lg'){
+        align-self: center;
+        // height: 20vh;
+        width: 100%;
+    }
+}
