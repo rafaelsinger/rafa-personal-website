@@ -13,7 +13,6 @@ const FadeInSection = ({children}: FadeInSectionProps) => {
     useEffect(() => {
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
-                console.log(entry.isIntersecting);
                 if (entry.isIntersecting) {
                     setVisible(entry.isIntersecting);
                 }

@@ -5,6 +5,7 @@ import {GrLinkedinOption} from 'react-icons/gr'
 import {IoMdDocument} from 'react-icons/io'
 import ProjectCard from './ProjectCard'
 import { projects } from './Projects'
+import FadeInSection from '../FadeInSection'
 
 const Portfolio = () => {
   useEffect(() => {
@@ -28,7 +29,7 @@ const Portfolio = () => {
           <h1 className='name'>Rafael Singer</h1>
           <h2 className='position'>Fullstack Web Developer</h2>
           <div className='section-links'>
-            <a className='link' href="#projects">Projects</a>
+            <a className='link' href="#projects"><div>Projects</div></a>
             <a className='link' href="#skills">Skills</a>
             <a className='link' href="#about">About</a>
             <Link to="/reviews" className='link'>Reviews</Link>
@@ -39,7 +40,7 @@ const Portfolio = () => {
       <section id='projects'>
         <h1 className='section-title'>Projects</h1>
         {projects.map((project, id) => (
-          <ProjectCard key={id} project={project} />
+            <ProjectCard key={id} project={project} />
         ))}
       </section>
       <section id='skills'>
