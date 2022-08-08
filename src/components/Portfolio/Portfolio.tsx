@@ -5,7 +5,7 @@ import {GrLinkedinOption} from 'react-icons/gr'
 import {IoMdDocument} from 'react-icons/io'
 import ProjectCard from './ProjectCard'
 import { projects } from './Projects'
-import FadeInSection from '../FadeInSection'
+import Skills from './Skills'
 
 const Portfolio = () => {
   useEffect(() => {
@@ -44,7 +44,8 @@ const Portfolio = () => {
         ))}
       </section>
       <section id='skills'>
-          skills here
+        <h1 className='section-title'>Skills</h1>
+        <Skills />
       </section>
       <section id='about'>
           about here

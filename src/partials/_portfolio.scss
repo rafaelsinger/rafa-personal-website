@@ -7,7 +7,7 @@ html {
 
 .wrapper{
     display: grid;
-    grid-template-rows: 675px minmax(min-content, max-content) repeat(4, 1fr);
+    grid-template-rows: 675px repeat(5, minmax(min-content, max-content) );
     position: relative;
     @include mq('lg'){
         grid-template-rows: auto repeat(5, 1fr);
@@ -264,6 +264,10 @@ html {
             "project-4 project-5"
             ;
     }
+}
+
+#skills{
+    color: $portfolio-primary;
 }
 
 .section-title{

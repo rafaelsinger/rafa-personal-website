@@ -22,6 +22,7 @@ const ProjectCard = ({project}: ProjectCardProps) => {
         observer.observe(domRef.current);
         return () => observer.unobserve(domRef.current)
     }, []);
+    
   return (
     <>
         <div className={`project-card fade-in-section ${isVisible ? 'is-visible' : ''}` } ref={domRef}>
