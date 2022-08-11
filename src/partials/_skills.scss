@@ -5,6 +5,14 @@
     width: 90%;
     margin: auto;
     color: white;
+    @include mq('lg'){
+        display: flex;
+        margin: 2.5rem auto;
+        justify-content: space-between;
+    }
+    @include mq('xl'){
+        justify-content: space-evenly;
+    }
 }
 
 .skill-section{
@@ -13,6 +21,12 @@
     padding: 1rem 0;
     border-radius: 10px;
     cursor: pointer;
+    @include mq('lg'){
+        padding: 1.5rem 3rem;
+    }
+    @include mq('xl'){
+        padding: 2rem 6rem;
+    }
 }
 
 .frontend{
@@ -30,16 +44,26 @@
     color: $portfolio-primary;
     font-size: 2rem;
     margin: 1rem auto;
+    margin-bottom: 2rem;
     height: fit-content;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
     gap: 1rem;
     justify-items: center;
     transform-origin: top;
     transform: scaleY(1);
     transition: all 0.5s ease;
     max-height: 1200px;
+
+    @include mq('lg'){
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+    @include mq('lg'){
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4rem;
+    }
 }
 
 .closed {
