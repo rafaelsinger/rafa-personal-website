@@ -13,39 +13,39 @@ const Skills = () => {
             <SkillSection title='Front End'>
                 <SkillsList>
                     <div className='skill-item js'>
-                        <SiJavascript size={70} fill='#f7df1e'/>
+                        <SiJavascript size={60} fill='#f7df1e'/>
                         <div className='skill-item-text'>JavaScript</div>
                     </div>
                     <div className='skill-item js'>
-                        <SiTypescript size={70} fill='#3178C6'/>
+                        <SiTypescript size={60} fill='#3178C6'/>
                         <div className='skill-item-text'>TypeScript</div>
                     </div>
                     <div className='skill-item'>
-                        <FaReact size={70} fill='#61DBFB' />
+                        <FaReact size={60} fill='#61DBFB' />
                         <div className='skill-item-text'>React</div>
                     </div>
                     <div className='skill-item js'>
-                        <SiRedux size={70} fill='#764abc'/>
+                        <SiRedux size={60} fill='#764abc'/>
                         <div className='skill-item-text'>Redux</div>
                     </div>
                     <div className='skill-item js'>
-                        <SiTailwindcss size={70} fill='#38BDF8'/>
+                        <SiTailwindcss size={60} fill='#38BDF8'/>
                         <div className='skill-item-text'>Tailwind</div>
                     </div>
                     <div className='skill-item js'>
-                        <FaSass size={70} fill='#c69'/>
+                        <FaSass size={60} fill='#c69'/>
                         <div className='skill-item-text'>Sass</div>
                     </div>
                     <div className='skill-item js'>
-                        <FaBootstrap size={70} fill='#563d7c'/>
+                        <FaBootstrap size={60} fill='#563d7c'/>
                         <div className='skill-item-text'>Bootstrap</div>
                     </div>
                     <div className='skill-item'>
-                        <IoLogoHtml5 size={70} fill='#E44D26'/>
+                        <IoLogoHtml5 size={60} fill='#E44D26'/>
                         <div className='skill-item-text'>HTML5</div>
                     </div>
                     <div className='skill-item'>
-                        <IoLogoCss3 size={70} fill='#264de4'/>
+                        <IoLogoCss3 size={60} fill='#264de4'/>
                         <div className='skill-item-text'>CSS3</div>
                     </div>
                 </SkillsList>

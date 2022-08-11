@@ -29,32 +29,37 @@
     background-color: white;
     color: $portfolio-primary;
     font-size: 2rem;
-    margin: 2rem auto;
+    margin: 1rem auto;
     height: fit-content;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 1rem;
     justify-items: center;
-    animation: slideDown 500ms ease-in-out 0 1 forwards;
-    // grid
-    // grid-auto-rows: auto;
+    transform-origin: top;
+    transform: scaleY(1);
+    transition: all 0.5s ease;
+    max-height: 1200px;
 }
 
-@keyframes slideDown {
-    0%{
-        scale: 0;
+.closed {
+    + .skills-list{
+        transform: scaleY(0);
+        max-height: 0;
+        margin: 0;
     }
-    100%{
-        scale: 100%;
-    }
+}
+
+
+.skills-list.closed{
+    transform: scaleY(0);
 }
 
 .skill-item{
     margin: 0.5rem;
     position: relative;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     &:hover{
         .skill-item-text{
             font-size: 1.3rem;
