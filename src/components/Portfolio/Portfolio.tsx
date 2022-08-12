@@ -6,6 +6,7 @@ import {IoMdDocument} from 'react-icons/io'
 import ProjectCard from './ProjectCard'
 import { projects } from './Projects'
 import Skills from './Skills'
+import FadeInSection from '../FadeInSection'
 
 const Portfolio = () => {
   useEffect(() => {
@@ -48,10 +49,24 @@ const Portfolio = () => {
         <Skills />
       </section>
       <section id='about'>
-          about here
+        <h1 className='section-title'>About</h1>
+        <FadeInSection>
+          <div className='about-container'>
+            <h2 className='about-header'>Hey 👋</h2>
+            <p className='about-text-desc'>
+            I'm Rafael Singer, a full-stack web developer currently studying computer science at Boston College. I'm passionate about creating engaging, performant, and accessible experiences on the web.
+            </p>
+            <p className='about-text'>
+            When I'm not programming, you can find me reading a book, hitting the gym, or watching the NBA (Go Lakers).
+            </p>
+            <p className='about-text'>
+            So, what are we building?
+            </p>
+          </div>
+        </FadeInSection>
       </section>
       <section id='contact'>
-          contact here
+        <h1 className='section-title'>Contact</h1>
       </section>
     </div>
   )

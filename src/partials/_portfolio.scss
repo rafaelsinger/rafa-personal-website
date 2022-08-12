@@ -10,7 +10,7 @@ html {
     grid-template-rows: 675px repeat(5, minmax(min-content, max-content) );
     position: relative;
     @include mq('lg'){
-        grid-template-rows: auto repeat(5, 1fr);
+        grid-template-rows: auto repeat(5, minmax(min-content, max-content));
     }
     // min-height: 100vh;
     // min-height: var(--vh);
@@ -270,6 +270,11 @@ html {
     color: $portfolio-primary;
 }
 
+#about{
+    margin-top: 3rem;
+    color: $portfolio-primary;
+}
+
 .section-title{
     font-size: 4rem;
     text-align: center;
@@ -292,4 +297,38 @@ html {
     opacity: 1;
     transform: none;
     visibility: visible;
+  }
+
+  .about-container{
+    background-color: $portfolio-primary;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 90%;
+    height: 100%;
+  }
+
+  .about-header{
+    text-align: center;
+    padding: 1rem;
+    font-size: 2rem;
+  }
+
+
+  .about-text, .about-text-desc{
+    margin: 1.5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    // line-height: 1.5px;
+  }
+
+  .about-text-desc{
+    margin-top: 0;
+  }
+
+  #contact{
+    margin-top: 3rem;
+    color: $portfolio-primary;
   }

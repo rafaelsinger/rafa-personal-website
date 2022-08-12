@@ -60,7 +60,7 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
     }
-    @include mq('lg'){
+    @include mq('xl'){
         grid-template-columns: repeat(3, 1fr);
         gap: 4rem;
     }
@@ -74,9 +74,19 @@
     }
 }
 
-
-.skills-list.closed{
-    transform: scaleY(0);
+.dropdown-section.is-visible{
+    @include mq('lg'){
+        .closed{
+            + .skills-list{
+                transform-origin: top;
+                transform: scaleY(1);
+                margin: 1rem auto;
+                margin-bottom: 2rem;
+                transition: all 2s ease;
+                max-height: 1200px;
+            }
+        }
+    }
 }
 
 .skill-item{
