@@ -6,7 +6,8 @@ import {IoMdDocument} from 'react-icons/io'
 import ProjectCard from './ProjectCard'
 import { projects } from './Projects'
 import Skills from './Skills'
-import FadeInSection from '../FadeInSection'
+import Contact from './Contact'
+import ContactDrawing from './ContactDrawing'
 
 const Portfolio = () => {
   useEffect(() => {
@@ -50,7 +51,6 @@ const Portfolio = () => {
       </section>
       <section id='about'>
         <h1 className='section-title'>About</h1>
-        <FadeInSection>
           <div className='about-container'>
             <h2 className='about-header'>Hey 👋</h2>
             <p className='about-text-desc'>
@@ -63,10 +63,21 @@ const Portfolio = () => {
             So, what are we building?
             </p>
           </div>
-        </FadeInSection>
       </section>
       <section id='contact'>
         <h1 className='section-title'>Contact</h1>
+        <div className='contact-box'>
+          <ContactDrawing height={'40vh'} width={'40vw'} />
+          <Contact />
+        </div>
+        <div className='footer'>
+          <div className='mobile-links'>
+            <a href='https://github.com/rafaelsinger' target='_blank' className='mobile-icon'><i id='github'><RiGithubLine size={50} /></i></a>
+            <a href='https://www.linkedin.com/in/rafael-singer-62566618b/' target='_blank' className='mobile-icon'><i id='linkedin'><GrLinkedinOption size={50} /></i></a>
+            <a href='/resume.pdf' download='Rafael Singer Resume' className='mobile-icon'><i id='resume'><IoMdDocument size={50} /></i></a>
+          </div>
+          <p className='copyright'>&copy; Rafael Singer 2022</p>
+        </div>
       </section>
     </div>
   )

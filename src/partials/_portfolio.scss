@@ -307,20 +307,31 @@ html {
     flex-direction: column;
     margin: auto;
     width: 90%;
-    height: 100%;
+    @include mq('lg'){
+        width: 75%;
+    }
   }
 
   .about-header{
     text-align: center;
     padding: 1rem;
     font-size: 2rem;
+    @include mq('lg'){
+        padding: 1.5rem;
+        font-size: 2.5rem;
+    }
   }
 
 
   .about-text, .about-text-desc{
-    margin: 1.5rem 1rem;
+    margin: 1rem;
     font-size: 1.25rem;
     line-height: 1.5rem;
+    @include mq('lg'){
+        padding: 0 0.5rem;
+        font-size: 1.75rem;
+        line-height: 2rem;
+    }
     // line-height: 1.5px;
   }
 
@@ -330,5 +341,44 @@ html {
 
   #contact{
     margin-top: 3rem;
+    height: 110vh;
     color: $portfolio-primary;
+    display: flex;
+    flex-direction: column;
+    @include mq('lg'){
+        margin-top: 6rem;
+        height: 100vh;
+        justify-content: space-between
+    }
+  }
+
+  .footer{
+    margin-top: auto;
+    width: 100%;
+    background-color: $portfolio-primary;
+    color: white;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include mq('lg'){
+        margin-top: 0;
+        // align-self: flex-end;
+    }
+  }
+
+  .mobile-links{
+    padding: 1rem;
+  }
+  
+ .mobile-icon{
+    margin: auto 1rem;
+    padding: 1rem;
+ }
+
+  .copyright{
+    justify-self: center;
+    text-align: center;
+    padding: 1rem;
   }

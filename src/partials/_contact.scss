@@ -1,0 +1,115 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+.contact-container{
+    display: flex;
+    width: 85%;
+    margin: auto;
+    flex-direction: column;
+    background-color: $portfolio-primary;
+    border-radius: 10px;
+    @include mq('lg'){
+        align-items: center;
+        justify-content: center;
+        width: 40vw;
+        height: 60vh;
+    }
+}
+
+.contact-field{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    color: white;
+    label{
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        @include mq('xl'){
+            font-size: 1.75rem;
+        }
+    }
+    input{
+        color: #121212;
+        background-color: white;
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+        border-radius: 5px;
+        &:focus{
+            outline: solid lighten($portfolio-primary, 35%);
+        }
+        @include mq('xl'){
+            padding: 0.75rem;
+        }
+    }
+    @include mq('lg'){
+       width: 75%;
+    }
+    
+}
+
+.contact-error{
+    color: #ff3333;
+}
+
+.input-error{
+    outline: solid #ff3333;
+}
+
+.textarea-input{
+    color: #121212;
+    background-color: white;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    height: 6rem;
+    &:focus{
+        outline: solid lighten($portfolio-primary, 35%);
+    }
+}
+
+.contact-submit{
+    width: 50%;
+    align-self: center;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    border: #11679c 1px solid;
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    @include mq('xl'){
+        margin-top: 2rem;
+        width: 15rem;
+    }
+}
+
+.enabled{
+    background-color: #1888ce;
+    color: white;
+    font-weight: bolder;
+    &:hover{
+        background-color: darken(#1888ce, 10%);
+    }
+}
+
+.disabled{
+    border: none;
+    cursor: not-allowed;
+}
+
+.contact-box{
+    @include mq('lg'){
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+}
+
+.contact-drawing{
+    display: none;
+    @include mq('lg'){
+        display: block;
+    }
+}
