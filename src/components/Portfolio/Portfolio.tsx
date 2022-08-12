@@ -34,7 +34,7 @@ const Portfolio = () => {
             <a className='link' href="#projects"><div>Projects</div></a>
             <a className='link' href="#skills">Skills</a>
             <a className='link' href="#about">About</a>
-            <Link to="/reviews" className='link'>Reviews</Link>
+            <Link to="/reviews" className='link' reloadDocument>Reviews</Link>
             <a className='link' href="#contact">Contact</a>
           </div>
       </div>
